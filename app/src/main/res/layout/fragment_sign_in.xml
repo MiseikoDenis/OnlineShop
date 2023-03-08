@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.signin.SignInFragment">
+
+    <TextView
+        android:id="@+id/sign_in_edit"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="127dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_horizontal|top"
+        android:lineHeight="32sp"
+        android:text="@string/sign_in"
+        android:textAppearance="@style/sign_in"
+        tools:targetApi="p" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/first_name_edit"
+        android:hint="@string/first_name"
+        android:layout_width="289dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="235dp"
+        style="@style/edit_text" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/last_name_edit"
+        android:hint="@string/last_name"
+        android:layout_width="289dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="299dp"
+        style="@style/edit_text" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/email"
+        android:hint="@string/email"
+        android:layout_width="289dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="363dp"
+        style="@style/edit_text" />
+    
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="289dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="427dp"
+        android:text="@string/sign_in"
+        style="@style/button"/>
+
+    <TextView
+        android:id="@+id/already_hav"
+        android:layout_width="129dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="488dp"
+        android:text="@string/already_hav"
+        android:textAppearance="@style/already_hav"
+        android:gravity="top" />
+
+    <TextView
+        android:id="@+id/log_in"
+        android:layout_width="35dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="488dp"
+        android:text="@string/log_in"
+        android:textAppearance="@style/log_in"
+        android:gravity="center_horizontal|top" />
+
+    <TextView
+        android:id="@+id/sign_in_with_google"
+        android:layout_width="117dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="580dp"
+        android:text="@string/sign_in_with_google"
+        android:textAppearance="@style/sign_in_wit"
+        android:gravity="top" />
+
+    <TextView
+        android:id="@+id/sign_in_with_apple"
+        android:layout_width="117dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="640.22dp"
+        android:text="@string/sign_in_with_apple"
+        android:textAppearance="@style/sign_in_wit"
+        android:gravity="top" />
+
+
+</FrameLayout>
