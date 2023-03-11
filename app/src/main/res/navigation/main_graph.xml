@@ -12,26 +12,56 @@
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signInFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_signInFragment_to_tabFragment"
+            app:destination="@id/tabFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.project.onlineshop.presentation.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/action_loginFragment_to_tabFragment"
+            app:destination="@id/tabFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
     <fragment
         android:id="@+id/page1Fragment"
-        android:name="com.project.onlineshop.presentation.page1.Page1Fragment"
+        android:name="com.project.onlineshop.presentation.pageone.PageOneFragment"
         android:label="fragment_page1"
-        tools:layout="@layout/fragment_page1" />
+        tools:layout="@layout/fragment_page_one" />
+
     <fragment
         android:id="@+id/page2Fragment"
-        android:name="com.project.onlineshop.presentation.page2.Page2Fragment"
+        android:name="com.project.onlineshop.presentation.pagetwo.PageTwoFragment"
         android:label="fragment_page2"
-        tools:layout="@layout/fragment_page2" />
+        tools:layout="@layout/fragment_page_two" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.project.onlineshop.presentation.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/tabFragment"
+        android:name="com.project.onlineshop.presentation.tab.TabFragment"
+        android:label="TabFragment" />
+
 </navigation>
