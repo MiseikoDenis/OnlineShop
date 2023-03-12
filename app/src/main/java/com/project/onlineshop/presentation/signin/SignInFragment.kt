@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.project.onlineshop.R
 import com.project.onlineshop.databinding.FragmentSignInBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.project.onlineshop.presentation.base.BaseFragment
+import com.project.onlineshop.presentation.util.EmailValidator
 
 
 class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
@@ -36,7 +38,14 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
 
     private fun FragmentSignInBinding.onRegisterPressed() {
         signInButton.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
+            if (EmailValidator.isValidEmail(email.text.toString())) {
+                findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
+            } else {
+                Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
+
+
 }

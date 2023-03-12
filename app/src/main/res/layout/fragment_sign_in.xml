@@ -94,29 +94,67 @@
         app:layout_constraintStart_toEndOf="@+id/already_hav"
         app:layout_constraintTop_toTopOf="@+id/already_hav" />
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_in_with_google"
-        android:layout_width="117dp"
-        android:layout_height="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:gravity="top"
-        android:text="@string/sign_in_with_google"
-        android:textAppearance="@style/sign_in_wit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/already_hav" />
+        app:layout_constraintTop_toBottomOf="@+id/already_hav">
 
-    <TextView
+        <ImageView
+            android:id="@+id/google_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_google"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/google_text"
+            android:layout_width="117dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/sign_in_with_google"
+            android:textAppearance="@style/sign_in_with"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/google_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sign_in_with_apple"
-        android:layout_width="117dp"
-        android:layout_height="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:gravity="top"
-        android:text="@string/sign_in_with_apple"
-        android:textAppearance="@style/sign_in_wit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_with_google" />
+        app:layout_constraintStart_toStartOf="@+id/sign_in_with_google"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_with_google">
+
+        <ImageView
+            android:id="@+id/apple_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_apple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/apple_text"
+            android:layout_width="117dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/sign_in_with_apple"
+            android:textAppearance="@style/sign_in_with"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/apple_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

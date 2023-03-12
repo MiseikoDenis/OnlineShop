@@ -12,4 +12,6 @@
     <string name="welcome_back">Welcome back</string>
     <string name="password">Password</string>
     <string name="login_button">Login</string>
+    <string name="show_password">show password</string>
+    <string name="invalid_email">Invalid Email</string>
 </resources>
