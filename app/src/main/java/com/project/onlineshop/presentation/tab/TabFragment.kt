@@ -21,7 +21,9 @@ import com.project.onlineshop.presentation.base.BaseFragment
 import com.project.onlineshop.presentation.base.BaseViewModel
 import com.project.onlineshop.presentation.pageone.PageOneFragment
 import com.project.onlineshop.presentation.pagetwo.PageTwoFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TabFragment : BaseFragment(R.layout.fragment_tab) {
 
     private val viewBinding by viewBinding(FragmentTabBinding::bind)

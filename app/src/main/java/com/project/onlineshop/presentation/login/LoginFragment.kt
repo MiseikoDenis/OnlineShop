@@ -17,8 +17,9 @@ import com.project.onlineshop.databinding.FragmentLoginBinding
 import com.project.onlineshop.databinding.FragmentSignInBinding
 import com.project.onlineshop.presentation.base.BaseFragment
 import com.project.onlineshop.presentation.tab.TabViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     override val viewModel by viewModels<LoginViewModel>()
