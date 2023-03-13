@@ -14,8 +14,9 @@ import com.project.onlineshop.databinding.FragmentSignInBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.project.onlineshop.presentation.base.BaseFragment
 import com.project.onlineshop.presentation.util.EmailValidator
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
 
     override val viewModel by viewModels<SignInViewModel>()
@@ -39,6 +40,7 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
     private fun FragmentSignInBinding.onRegisterPressed() {
         signInButton.setOnClickListener {
             if (EmailValidator.isValidEmail(email.text.toString())) {
+                viewModel.registerUser(firstNameEdit.text.toString(), lastNameEdit.text.toString(), email.text.toString())
                 findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
             } else {
                 Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT)
