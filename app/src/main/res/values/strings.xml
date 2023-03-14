@@ -14,4 +14,6 @@
     <string name="login_button">Login</string>
     <string name="show_password">show password</string>
     <string name="invalid_email">Invalid Email</string>
+    <string name="wrong_login_or_password">Неверный логин или пароль</string>
+    <string name="login_already_exist">Уже есть такой пользователь</string>
 </resources>

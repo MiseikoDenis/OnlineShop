@@ -37,7 +37,20 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     private fun FragmentLoginBinding.onLoginPressed() {
         loginButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_tabFragment)
+            if (viewModel.onLoginClicked(
+                    firstNameEdit.text.toString(),
+                    passwordEdit.text.toString()
+                )
+            ) {
+                findNavController().navigate(R.id.action_loginFragment_to_tabFragment)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.wrong_login_or_password),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
         }
     }
 

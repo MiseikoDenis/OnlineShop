@@ -39,15 +39,20 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
 
     private fun FragmentSignInBinding.onRegisterPressed() {
         signInButton.setOnClickListener {
-            if (EmailValidator.isValidEmail(email.text.toString())) {
-                viewModel.registerUser(firstNameEdit.text.toString(), lastNameEdit.text.toString(), email.text.toString())
-                findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
-            } else {
+            if (!EmailValidator.isValidEmail(email.text.toString())) {
                 Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT)
                     .show()
+            } else if (!viewModel.checkLogin(firstNameEdit.text.toString())) {
+                Toast.makeText(context, getString(R.string.login_already_exist), Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                viewModel.registerUser(
+                    firstNameEdit.text.toString(),
+                    lastNameEdit.text.toString(),
+                    email.text.toString()
+                )
+                findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
             }
         }
     }
-
-
 }

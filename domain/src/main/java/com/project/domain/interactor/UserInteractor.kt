@@ -25,4 +25,13 @@ class UserInteractor @Inject constructor(
             repository.insertUser(mapper.mapToEntity(user))
         }
     }
+
+    suspend fun checkLoginAndPassword(login: String, password: String): Boolean {
+        val user = repository.getUser(login)
+        return user?.password == password
+    }
+
+    suspend fun checkLogin(login: String): Boolean{
+        return repository.getUser(login) == null
+    }
 }
