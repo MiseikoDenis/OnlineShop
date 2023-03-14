@@ -29,6 +29,12 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
             onRegisterPressed()
         }
 
+
+        //Только для теста
+        viewBinding.googleLogo.setOnClickListener {
+            findNavController().navigate(R.id.action_signInFragment_to_tabFragment)
+        }
+
     }
 
     private fun FragmentSignInBinding.onLoginPressed() {
