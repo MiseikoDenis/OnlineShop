@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".presentation.profile.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/profile"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_arrow_back"/>
+
     <TextView
         android:id="@+id/profile"
         android:layout_width="55dp"
@@ -13,12 +22,283 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="39dp"
-        android:fontFamily="@font/montserrat"
         android:gravity="center_horizontal|top"
         android:text="@string/profile"
         android:textAppearance="@style/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!--        android:fontFamily="@font/montserrat"-->
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="61.06dp"
+        android:layout_height="61.06dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile"
+        android:src="@drawable/ic_placeholder"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_shape"/>
+
+    <TextView
+        android:id="@+id/change_photo"
+        android:layout_width="69dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:text="@string/change_photo"
+        android:textAppearance="@style/change_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo"
+        android:layout_marginTop="6dp"/>
+
+    <TextView
+        android:id="@+id/satria_adhi"
+        android:layout_width="168dp"
+        android:layout_height="16dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:text="@string/satria_adhi"
+        android:textAppearance="@style/satria_adhi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/change_photo"
+        android:layout_marginTop="17dp"/>
+    <!--        android:fontFamily="@font/montserrat"-->
+
+    <Button
+        android:id="@+id/change_photo_button"
+        style="@style/button"
+        android:layout_width="289dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/upload_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/satria_adhi" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/trade_store_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_photo_button"
+        android:layout_marginTop="14dp">
+
+        <ImageView
+            android:id="@+id/trade_store_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_card"/>
+
+        <TextView
+            android:id="@+id/trade_store_text"
+            style="@style/profile_item_text"
+            android:text="@string/trade_store"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/trade_store_icon"/>
+
+        <ImageView
+            android:id="@+id/trade_store_arrow"
+            style="@style/profile_item_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/payment_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trade_store_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/payment_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_card"/>
+
+        <TextView
+            android:id="@+id/payment_text"
+            style="@style/profile_item_text"
+            android:text="@string/payment_method"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/payment_icon"/>
+
+        <ImageView
+            android:id="@+id/payment_arrow"
+            style="@style/profile_item_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/balance_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/balance_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_card"/>
+
+        <TextView
+            android:id="@+id/balance_text"
+            style="@style/profile_item_text"
+            android:text="@string/balance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/balance_icon"/>
+
+        <TextView
+            android:id="@+id/balance_number"
+            style="@style/profile_item_text"
+            android:text="@string/balance_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/trade_history_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/trade_history_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_card"/>
+
+        <TextView
+            android:id="@+id/trade_history_text"
+            style="@style/profile_item_text"
+            android:text="@string/trade_history"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/trade_history_icon"/>
+
+        <ImageView
+            android:id="@+id/trade_history_arrow"
+            style="@style/profile_item_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/restore_purchase_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trade_history_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/restore_purchase_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_refresh"/>
+
+        <TextView
+            android:id="@+id/restore_purchase_text"
+            style="@style/profile_item_text"
+            android:text="@string/restore_purchase"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/restore_purchase_icon"/>
+
+        <ImageView
+            android:id="@+id/restore_purchase_arrow"
+            style="@style/profile_item_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/help_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restore_purchase_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/help_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_help"/>
+
+        <TextView
+            android:id="@+id/help_text"
+            style="@style/profile_item_text"
+            android:text="@string/help"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/help_icon"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/log_out_item"
+        style="@style/profile_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_item"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:id="@+id/log_out_icon"
+            style="@style/profile_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_logout"/>
+
+        <TextView
+            android:id="@+id/log_out_text"
+            style="@style/profile_item_text"
+            android:text="@string/log_out"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/log_out_icon"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

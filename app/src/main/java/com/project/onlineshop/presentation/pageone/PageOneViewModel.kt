@@ -16,11 +16,11 @@ class PageOneViewModel @Inject constructor(
     val interactor: UserInteractor
 ): BaseViewModel() {
 
-    var text = MutableLiveData("sdgsdgsdgsdg")
+    var text = MutableLiveData("")
 
     fun getUser(){
         viewModelScope.launch {
-            text.value = interactor.getUserByLogin("test")?.login
+            text.value = interactor.getLoggedInLogin()?.let { interactor.getUserByLogin(it)?.login }
         }
     }
 

@@ -62,6 +62,10 @@
     <fragment
         android:id="@+id/tabFragment"
         android:name="com.project.onlineshop.presentation.tab.TabFragment"
-        android:label="TabFragment" />
+        android:label="TabFragment" >
+        <action
+            android:id="@+id/action_tabFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
 
 </navigation>

@@ -1,13 +1,14 @@
 package com.project.domain.interactor
 
 import com.project.data.repository.UserRepository
-import com.project.domain.mapper.EntityMapper
 import com.project.domain.mapper.UserEntityMapper
 import com.project.domain.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserInteractor @Inject constructor(
     private val repository: UserRepository,
     private val mapper: UserEntityMapper,
@@ -33,5 +34,19 @@ class UserInteractor @Inject constructor(
 
     suspend fun checkLogin(login: String): Boolean{
         return repository.getUser(login) == null
+    }
+
+    suspend fun updateUserPhoto(login: String, photoUri: String){
+        withContext(Dispatchers.IO){
+            repository.updateUserPhoto(login, photoUri)
+        }
+    }
+
+    fun getLoggedInLogin(): String?{
+        return repository.getLoggedInUsername()
+    }
+
+    fun setLoggedInLogin(login: String?){
+        repository.setLoggedInUsername(login)
     }
 }

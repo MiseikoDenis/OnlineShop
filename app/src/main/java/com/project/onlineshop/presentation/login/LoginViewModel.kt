@@ -24,5 +24,9 @@ class LoginViewModel @Inject constructor(
         return runBlocking { interactor.checkLoginAndPassword(login, password) }
     }
 
+    fun saveLoggedLogin(login: String){
+        interactor.setLoggedInLogin(login)
+    }
+
 
 }

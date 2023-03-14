@@ -12,4 +12,7 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserEntity)
+
+    @Query("UPDATE users SET photoUrl = :photoUrl WHERE login = :login")
+    suspend fun updateUserPhoto(login: String, photoUrl: String)
 }

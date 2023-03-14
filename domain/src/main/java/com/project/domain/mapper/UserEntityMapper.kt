@@ -6,10 +6,10 @@ import javax.inject.Inject
 
 class UserEntityMapper @Inject constructor() : EntityMapper<UserEntity, User> {
     override fun mapFromEntity(entity: UserEntity): User {
-        return User(entity.login, entity.password, entity.email)
+        return User(entity.login, entity.password, entity.email, entity.photoUrl)
     }
 
     override fun mapToEntity(domain: User): UserEntity {
-        return UserEntity(domain.login, domain.password, domain.email)
+        return UserEntity(domain.login, domain.password, domain.email, domain.photoUrl)
     }
 }

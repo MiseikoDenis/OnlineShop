@@ -42,6 +42,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
                     passwordEdit.text.toString()
                 )
             ) {
+                viewModel.saveLoggedLogin(firstNameEdit.text.toString())
                 findNavController().navigate(R.id.action_loginFragment_to_tabFragment)
             } else {
                 Toast.makeText(

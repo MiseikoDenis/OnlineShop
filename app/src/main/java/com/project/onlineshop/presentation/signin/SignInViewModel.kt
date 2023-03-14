@@ -20,9 +20,10 @@ class SignInViewModel @Inject constructor(
 
     fun registerUser(login: String, password: String, email: String){
         viewModelScope.launch{
-            val user = User(login, password, email)
+            val user = User(login, password, email, null)
             interactor.addUser(user)
         }
+        interactor.setLoggedInLogin(login)
     }
 
     fun checkLogin(login: String): Boolean{
