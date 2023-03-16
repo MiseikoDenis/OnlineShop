@@ -44,7 +44,10 @@ dependencies {
     implementation project(':domain')
 
     //Adapter delegates
-    implementation 'com.hannesdorfmann:adapterdelegates4:4.3.0'
+    def delegates_version = "4.3.2"
+    implementation "com.hannesdorfmann:adapterdelegates4:$delegates_version"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:$delegates_version"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:$delegates_version"
 
     //Glide
     def glide_version = "4.12.0"

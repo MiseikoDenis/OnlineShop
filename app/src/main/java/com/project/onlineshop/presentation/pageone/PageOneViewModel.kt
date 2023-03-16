@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.project.domain.interactor.ProductInteractor
 import com.project.domain.interactor.UserInteractor
-import com.project.domain.model.Product
+import com.project.domain.model.LatestProduct
+import com.project.domain.model.SaleProduct
 import com.project.onlineshop.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,16 +22,30 @@ class PageOneViewModel @Inject constructor(
     private var _imageUri = MutableLiveData<String>()
     val imageUri: LiveData<String> = _imageUri
 
-    private val _latestProducts = MutableLiveData<List<Product>>()
-    val latestProducts: LiveData<List<Product>> get() = _latestProducts
+    private val _latestProducts = MutableLiveData<List<LatestProduct>>()
+    val latestProducts: LiveData<List<LatestProduct>> get() = _latestProducts
+
+    private val _saleProducts = MutableLiveData<List<SaleProduct>>()
+    val saleProducts: LiveData<List<SaleProduct>> get() = _saleProducts
 
     init {
         getInitPhoto()
     }
 
-    fun loadLatestProducts() {
+    fun loadAllProducts(){
+        loadSaleProducts()
+        loadLatestProducts()
+    }
+
+    private fun loadLatestProducts() {
         viewModelScope.launch {
             _latestProducts.value = productInteractor.getLatestProducts()
+        }
+    }
+
+    private fun loadSaleProducts(){
+        viewModelScope.launch {
+            _saleProducts.value = productInteractor.getSaleProducts()
         }
     }
 

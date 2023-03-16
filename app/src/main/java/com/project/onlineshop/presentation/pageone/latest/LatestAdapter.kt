@@ -2,11 +2,11 @@ package com.project.onlineshop.presentation.pageone.latest
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.project.domain.model.Product
+import com.project.domain.model.LatestProduct
 import com.project.onlineshop.R
 
 class LatestAdapter (
-    private val items: List<Product>
+    private val items: List<LatestProduct>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

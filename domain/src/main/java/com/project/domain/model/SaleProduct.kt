@@ -1,8 +1,9 @@
 package com.project.domain.model
 
-data class Product (
+data class SaleProduct (
     val category: String,
     val name: String,
-    val price: Int,
+    val price: Double,
+    val discount: Int,
     val imageUrl: String
 )

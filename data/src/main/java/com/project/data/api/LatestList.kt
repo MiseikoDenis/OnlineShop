@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class LatestList(
     @SerializedName("latest")
-    val latest: List<ProductResponse>
+    val latest: List<LatestProductResponse>
 ){
-    constructor() : this(emptyList())
+
 }

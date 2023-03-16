@@ -1,9 +1,8 @@
 package com.project.data.repository
 
-import com.project.data.api.LatestList
-import com.project.data.api.ProductResponse
+import com.project.data.api.LatestProductResponse
 import com.project.data.api.ProductsApi
-import retrofit2.*
+import com.project.data.api.SaleProductResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,8 +10,13 @@ import javax.inject.Singleton
 class RemoteRepository @Inject constructor(
     private val api: ProductsApi
 ) {
-    suspend fun getLatestProducts(): List<ProductResponse> {
+    suspend fun getLatestProducts(): List<LatestProductResponse> {
         val response = api.getLatestProducts()
         return response.body()?.latest ?: emptyList()
+    }
+
+    suspend fun getSaleProducts(): List<SaleProductResponse>{
+        val response = api.getSaleProducts()
+        return response.body()?.sale?: emptyList()
     }
 }
