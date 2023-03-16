@@ -29,10 +29,17 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun getInitPhoto() {
+    private fun getInitPhoto() {
         viewModelScope.launch {
             interactor.getLoggedInLogin()?.let { login ->
-                _imageUri.value = interactor.getUserByLogin(login)?.photoUrl!!
+                val user = interactor.getUserByLogin(login)
+                if (user?.photoUrl == null) {
+                    _imageUri.value =
+                        Uri.parse("android.resource://com.project.onlineshop/drawable/ic_placeholder")
+                            .toString()
+                } else {
+                    _imageUri.value = user.photoUrl!!
+                }
             }
         }
     }
