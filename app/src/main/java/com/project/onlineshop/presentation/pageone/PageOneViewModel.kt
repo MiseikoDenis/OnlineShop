@@ -1,5 +1,7 @@
 package com.project.onlineshop.presentation.pageone
 
+import android.net.Uri
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.project.domain.interactor.UserInteractor
@@ -13,14 +15,28 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PageOneViewModel @Inject constructor(
-    val interactor: UserInteractor
+    private val interactor: UserInteractor
 ): BaseViewModel() {
 
-    var text = MutableLiveData("")
+    private var _imageUri = MutableLiveData<String>()
+    val imageUri: LiveData<String> = _imageUri
 
-    fun getUser(){
+    init {
+        getInitPhoto()
+    }
+
+    private fun getInitPhoto() {
         viewModelScope.launch {
-            text.value = interactor.getLoggedInLogin()?.let { interactor.getUserByLogin(it)?.login }
+            interactor.getLoggedInLogin()?.let { login ->
+                val user = interactor.getUserByLogin(login)
+                if (user?.photoUrl == null) {
+                    _imageUri.value =
+                        Uri.parse("android.resource://com.project.onlineshop/drawable/ic_placeholder")
+                            .toString()
+                } else {
+                    _imageUri.value = user.photoUrl!!
+                }
+            }
         }
     }
 
