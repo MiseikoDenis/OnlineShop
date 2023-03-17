@@ -10,6 +10,7 @@ import com.project.domain.model.LatestProduct
 import com.project.domain.model.SaleProduct
 import com.project.onlineshop.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,19 +23,47 @@ class PageOneViewModel @Inject constructor(
     private var _imageUri = MutableLiveData<String>()
     val imageUri: LiveData<String> = _imageUri
 
-    private val _latestProducts = MutableLiveData<List<LatestProduct>>()
-    val latestProducts: LiveData<List<LatestProduct>> get() = _latestProducts
+    private val _latestProducts = MutableLiveData<List<LatestProduct>?>()
+    val latestProducts: MutableLiveData<List<LatestProduct>?> get() = _latestProducts
 
-    private val _saleProducts = MutableLiveData<List<SaleProduct>>()
-    val saleProducts: LiveData<List<SaleProduct>> get() = _saleProducts
+    private val _saleProducts = MutableLiveData<List<SaleProduct>?>()
+    val saleProducts: MutableLiveData<List<SaleProduct>?> get() = _saleProducts
+
+    private val isLoading = MutableLiveData<Boolean>().apply { value = false }
+
+    private var _searchResult = MutableLiveData<List<String>>()
+    val searchResult: MutableLiveData<List<String>> get() = _searchResult
+
 
     init {
         getInitPhoto()
     }
 
-    fun loadAllProducts(){
-        loadSaleProducts()
-        loadLatestProducts()
+    fun loadData() {
+        isLoading.value = true
+        viewModelScope.launch {
+            try {
+                val result = productInteractor.loadData()
+                _latestProducts.value = result.first
+                _saleProducts.value = result.second
+            } catch (_: Exception) {
+            } finally {
+                isLoading.value = false
+            }
+        }
+    }
+
+    fun searchWords(searchTerm: String) {
+        viewModelScope.launch {
+            delay(1000)
+            val searchResult = productInteractor.getSearchResults(searchTerm)
+            if (searchResult.isNotEmpty()) {
+                val words = searchResult
+                _searchResult.postValue(words)
+            } else {
+                _searchResult.postValue(emptyList())
+            }
+        }
     }
 
     private fun loadLatestProducts() {
@@ -63,5 +92,7 @@ class PageOneViewModel @Inject constructor(
             }
         }
     }
+
+
 
 }

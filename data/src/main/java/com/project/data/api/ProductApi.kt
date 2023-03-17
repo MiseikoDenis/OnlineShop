@@ -10,4 +10,7 @@ interface ProductsApi {
 
     @GET("v3/a9ceeb6e-416d-4352-bde6-2203416576ac")
     suspend fun getSaleProducts(): Response<SaleList>
+
+    @GET("v3/4c9cd822-9479-4509-803d-63197e5a9e19")
+    suspend fun getSearchResult(): Response<SearchList>
 }

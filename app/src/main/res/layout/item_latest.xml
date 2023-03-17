@@ -39,6 +39,17 @@
         android:paddingRight="6dp"
         app:layout_constraintBottom_toTopOf="@id/title"
         app:layout_constraintStart_toStartOf="@id/title" />
-
+    
+    <ImageButton
+        android:id="@+id/add_img"
+        android:src="@drawable/ic_plus"
+        android:background="@drawable/gray_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="center"
+        android:layout_margin="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
